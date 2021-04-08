@@ -1,21 +1,29 @@
-html, body {
-    margin: 10px;
-    body: 10px;
+html,
+body {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 420px;
+  height: 420px;
+  border: 1px solid black;
 }
 
 .square {
-    width: 20px;
-    height: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.apple {
+  background-color: darkred;
 }
 
 .snake {
-    background-color: forestgreen;
+  background-color: forestgreen;
 }
