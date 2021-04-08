@@ -1,31 +1,60 @@
 import gridGenerator from './gridGenerator';
 import Snake from './snake';
+import Apple from './apple';
 
-const control = (event) => {
-  if (event.keyCode === 39) {
-    console.log('right pressed');
-  } else if (event.keyCode === 38) {
-    console.log('up pressed');
-  } else if (event.keyCode === 37) {
-    console.log('left pressed');
-  } else if (event.keyCode === 40) {
-    console.log('down pressed');
-  }
-};
 const gameFlow = () => {
   const startButton = document.querySelector('#start');
   const score = document.querySelector('.score');
   const grid = document.querySelector('.grid');
   let squares = [];
   const currentSnake = new Snake();
-
+  let direction = 1;
+  let predirect = 1;
   squares = gridGenerator(grid);
   currentSnake.draw(squares);
 
+  const control = (event) => {
+    if (event.keyCode === 39) {
+      predirect = direction;
+      direction = 1;
+    } else if (event.keyCode === 38) {
+      predirect = direction;
+      direction = -10;
+    } else if (event.keyCode === 37) {
+      predirect = direction;
+      direction = -1;
+    } else if (event.keyCode === 40) {
+      predirect = direction;
+      direction = 10;
+    }
+  };
+
+  const check = (interval) => {
+    if (
+      (currentSnake.snake[0] + 10 >= 100 && direction === 10)
+      || (currentSnake.snake[0] % 10 === 9 && direction === 1)
+      || (currentSnake.snake[0] % 10 === 0 && direction === -1)
+      || (currentSnake.snake[0] - 10 < 0 && direction === -10)
+      || squares[currentSnake.snake[0] + direction].classList.contains('snake')
+      || direction === predirect * -1
+    ) {
+      return clearInterval(interval);
+    }
+    return 'continue';
+  };
+
   const timerId = setInterval(() => {
-    currentSnake.move(squares, 1);
-  }, 500);
-  clearInterval(timerId);
-  document.addEventListener('keydown', (event) => { control(event); });
+    check(timerId);
+    currentSnake.move(squares, direction);
+  }, 300);
+
+  const apple = new Apple(squares);
+
+  document.addEventListener('keydown', (event) => {
+    control(event);
+  });
 };
-export { gameFlow as default };
+export {
+  gameFlow as
+  default,
+};

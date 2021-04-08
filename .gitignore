@@ -38,6 +38,7 @@
 *.log
 .idea
 .vscode
+.tern-project
 .cache
 .eslintcache
 package-lock.json
