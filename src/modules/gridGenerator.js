@@ -1,5 +1,6 @@
 const gridGenerator = (parent) => {
   const squares = [];
+  parent.textContent = '';
   for (let i = 0; i < 100; i += 1) {
     const square = document.createElement('div');
     square.classList.add('square');

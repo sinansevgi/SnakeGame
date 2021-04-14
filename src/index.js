@@ -1,3 +1,5 @@
 import gameFlow from './modules/game';
 
-gameFlow();
+const startButton = document.querySelector('#start');
+
+startButton.addEventListener('click', gameFlow);
