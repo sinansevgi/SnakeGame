@@ -33,6 +33,8 @@ Nodejs
 ### Usage
 
 - For running live server run `npm start`. 
+- For playing game press the `Start/Restart` button.
+- You can use arrow keys or `W,A,S,D` for moving the snake. 
 
 
 ## Author
@@ -50,6 +52,12 @@ Nodejs
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/sinansevgi/SnakeGame/issues).
+
+## Acknowledgments
+
+- [Ania Kubów](https://javascriptgames.online/)
+- [Scrimba](https://scrimba.com/playlist/pk649td)
+
 
 ## Show your support
 
